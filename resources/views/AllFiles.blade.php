@@ -22,7 +22,7 @@
                                 <th scope="col">Title</th>
                                 <th scope="col">File Name</th>
                                 <th scope="col">Size (KB)</th>
-                                <th scope="col">Description</th>
+                                <th scope="col">Count Visits</th>
                                 <th scope="col">Actions</th>
                             </thead>
                             <tbody>
@@ -32,7 +32,7 @@
                                     <td>{{$file->title}}</td>
                                     <td>{{$file->file_name}}</td>
                                     <td>{{$file->size}}</td>
-                                    <td>{{$file->description}}</td>
+                                    <td>{{$file->visits->count()}}</td>
                                     <td><a href="{{ route('share',[$file->link_share]) }}"
                                             class="btn btn-sm btn-outline-primary" target="_blank"
                                             onclick="CopyText('{{config('app.url').$file->link_share}}')">Open

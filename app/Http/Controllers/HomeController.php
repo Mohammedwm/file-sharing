@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\File;
+use App\Models\Visits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Location;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $files = File::all();
-        //echo request()->ip();
-        $ip = $request->ip();
-        $data = Location::get($ip);
-        return view('home',['files' => $files]);
+        $count_visits = Visits::count();
+        return view('home',['files' => $files,
+            'count_visits' => $count_visits ]);
     }
     public function AllFiles()
     {

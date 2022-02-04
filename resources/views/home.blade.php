@@ -99,7 +99,7 @@
                     <div class="col-7 col-md-8">
                         <div class="numbers">
                             <p class="card-category">Visits</p>
-                            <p class="card-title">+45K</p>
+                            <p class="card-title">{{ $count_visits }}</p>
                             <p>
                             </p>
                         </div>

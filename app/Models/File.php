@@ -10,4 +10,9 @@ class File extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'description', 'path', 'size', 'link_share','file_name'];
+
+    public function visits()
+    {
+        return $this->hasMany(Visits::class,'file_id','id');
+    }
 }

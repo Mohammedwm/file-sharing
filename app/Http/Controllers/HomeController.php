@@ -12,6 +12,12 @@ class HomeController extends Controller
         $files = File::all();
         return view('home',['files' => $files]);
     }
+    public function AllFiles()
+    {
+        $files = File::all();
+        return view('AllFiles',['files' => $files]);
+    }
+
     public function uploadFile()
     {
         return view('addfile');

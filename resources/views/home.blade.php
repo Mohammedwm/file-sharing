@@ -1,123 +1,121 @@
 @extends('index')
+@section('title', 'Dashboard')
 
 @section('content')
-<div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
-<div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-info">
-                    <div class="inner">
-                        <h3>{{ $files->count() }}</h3>
-
-                        <p>Number Files</p>
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-5 col-md-4">
+                        <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-cloud-upload-94 text-warning"></i>
+                        </div>
                     </div>
-                    <div class="icon">
-                        <i class="ion ion-bag"></i>
+                    <div class="col-7 col-md-8">
+                        <div class="numbers">
+                            <p class="card-category">Files</p>
+                            <p class="card-title">{{ $files->count() }}</p>
+                            <p>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-success">
-                    <div class="inner">
-                        <h3>{{$files->sum('size') }}</h3>
-
-                        <p>Size all files</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-stats-bars"></i>
-                    </div>
+            <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                    <i class="nc-icon nc-cloud-upload-94"></i>
+                    Number Files
                 </div>
             </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-warning">
-                    <div class="inner">
-                        <h3>44</h3>
-
-                        <p>User Registrations</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-person-add"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-                <!-- small box -->
-                <div class="small-box bg-danger">
-                    <div class="inner">
-                        <h3>65</h3>
-
-                        <p>Unique Visitors</p>
-                    </div>
-                    <div class="icon">
-                        <i class="ion ion-pie-graph"></i>
-                    </div>
-                </div>
-            </div>
-            <!-- ./col -->
         </div>
-        <section class="content-header">
-            <div class="container">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>All Files</h1>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-5 col-md-4">
+                        <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-money-coins text-success"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 col-md-8">
+                        <div class="numbers">
+                            <p class="card-category">MB</p>
+                            <p class="card-title">{{ number_format($files->sum('size') / 1024, 2) }}</p>
+                            <p>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
-        </section>
-        <div class="row">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">File Name</th>
-                        <th scope="col">Size (KB)</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                    $i=1;
-                    @endphp
-                    @foreach ($files as $file)
-                    <tr>
-                        <th scope="row">{{$i++;}}</th>
-                        <td>{{$file->title}}</td>
-                        <td>{{$file->file_name}}</td>
-                        <td>{{$file->size}}</td>
-                        <td>{{$file->description}}</td>
-                        <td><a href="{{ route('share',[$file->link_share]) }}"
-                            class="btn btn-sm btn-outline-primary" target="_blank"
-                                onclick="CopyText('{{config('app.url').$file->link_share}}')">Open Link</a>
-                            <a class="btn btn-sm btn-outline-primary"
-                                onclick="CopyText('{{config('app.url').$file->link_share}}')">Copy</a></td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <!-- /.col-md-6 -->
+            </div>
+            <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                    <i class="fa fa-calendar-o"></i>
+                    Size all files
+                </div>
+            </div>
         </div>
-        <!-- /.row -->
-    </div><!-- /.container-fluid -->
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-5 col-md-4">
+                        <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-vector text-danger"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 col-md-8">
+                        <div class="numbers">
+                            <p class="card-category">GB</p>
+                            <p class="card-title">5</p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                    <i class="fa fa-clock-o"></i>
+                    Storage Space
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card card-stats">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-5 col-md-4">
+                        <div class="icon-big text-center icon-warning">
+                            <i class="nc-icon nc-favourite-28 text-primary"></i>
+                        </div>
+                    </div>
+                    <div class="col-7 col-md-8">
+                        <div class="numbers">
+                            <p class="card-category">Visits</p>
+                            <p class="card-title">+45K</p>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer ">
+                <hr>
+                <div class="stats">
+                    <i class="fa fa-refresh"></i>
+                    Number Of Visits
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<script>
-    function CopyText(link){
-        navigator.clipboard.writeText(link);
-    }
 
-</script>
+
 @endsection

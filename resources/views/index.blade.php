@@ -7,7 +7,7 @@
         <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>
-            Paper Dashboard 2 by Creative Tim
+            {{ config('app.name') }}
         </title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
             name='viewport' />
@@ -40,22 +40,22 @@
                 </div>
                 <div class="sidebar-wrapper">
                     <ul class="nav">
-                        <li class="active ">
-                            <a href="javascript:;">
+                        <li class="{{ (request()->is('/')) ? 'active' : '' }} ">
+                            <a href="{{ route('home') }}">
                                 <i class="nc-icon nc-bank"></i>
-                                <p>First Item</p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:;">
+                        <li class="{{ (request()->is('AllFiles')) ? 'active' : '' }}">
+                            <a href="{{ route('allFiles') }}">
                                 <i class="nc-icon nc-diamond"></i>
-                                <p>Second Item</p>
+                                <p>All Files</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="javascript:;">
+                        <li class="{{ (request()->is('UploadFile')) ? 'active' : '' }}" >
+                            <a href="{{ route('uploadFile') }}">
                                 <i class="nc-icon nc-pin-3"></i>
-                                <p>Third Item</p>
+                                <p>Upload File</p>
                             </a>
                         </li>
                     </ul>
@@ -73,7 +73,7 @@
                                     <span class="navbar-toggler-bar bar3"></span>
                                 </button>
                             </div>
-                            <a class="navbar-brand" href="javascript:;">Title</a>
+                            <a class="navbar-brand">@yield('title', '')</a>
                         </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
                             aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -115,26 +115,20 @@
                 </nav>
                 <!-- End Navbar -->
                 <div class="content">
-                    <div class="row">
+                    @yield('content')
+                    {{-- <div class="row">
                         <div class="col-md-12">
                             <h3 class="description">Your content here</h3>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <footer class="footer" style="position: absolute; bottom: 0; width: -webkit-fill-available;">
                     <div class="container-fluid">
                         <div class="row">
-                            <nav class="footer-nav">
-                                <ul>
-                                    <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                                    <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                                    <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-                                </ul>
-                            </nav>
                             <div class="credits ml-auto">
-                                <span class="copyright">
+                                {{-- <span class="copyright">
                                     © 2020, made with <i class="fa fa-heart heart"></i> by Creative Tim
-                                </span>
+                                </span> --}}
                             </div>
                         </div>
                     </div>

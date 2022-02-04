@@ -1,15 +1,7 @@
 @extends('index')
+@section('title', 'Add New File')
 
 @section('content')
-<section class="content-header">
-    <div class="container">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Add New File</h1>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
 
 <section class="content">
     <div class="container">

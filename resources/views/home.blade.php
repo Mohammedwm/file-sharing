@@ -37,7 +37,7 @@
                 <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                            <i class="nc-icon nc-money-coins text-success"></i>
+                            <i class="nc-icon nc-chart-pie-36 text-success"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -53,7 +53,7 @@
             <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                    <i class="fa fa-calendar-o"></i>
+                    <i class="nc-icon nc-chart-pie-36"></i>
                     Size all files
                 </div>
             </div>
@@ -93,7 +93,7 @@
                 <div class="row">
                     <div class="col-5 col-md-4">
                         <div class="icon-big text-center icon-warning">
-                            <i class="nc-icon nc-favourite-28 text-primary"></i>
+                            <i class="nc-icon nc-send text-primary"></i>
                         </div>
                     </div>
                     <div class="col-7 col-md-8">
@@ -109,7 +109,7 @@
             <div class="card-footer ">
                 <hr>
                 <div class="stats">
-                    <i class="fa fa-refresh"></i>
+                    <i class="nc-icon nc-send"></i>
                     Number Of Visits
                 </div>
             </div>

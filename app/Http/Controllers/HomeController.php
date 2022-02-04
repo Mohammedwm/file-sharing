@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Location;
+
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $files = File::all();
+        //echo request()->ip();
+        $ip = $request->ip();
+        $data = Location::get($ip);
         return view('home',['files' => $files]);
     }
     public function AllFiles()

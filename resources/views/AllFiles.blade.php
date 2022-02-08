@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
-                            <thead class=" text-primary">
+                            <thead class=" text-success">
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">File Name</th>
@@ -33,12 +33,16 @@
                                     <td>{{$file->file_name}}</td>
                                     <td>{{$file->size}}</td>
                                     <td>{{$file->visits->count()}}</td>
-                                    <td><a href="{{ route('share',[$file->link_share]) }}"
-                                            class="btn btn-sm btn-outline-primary" target="_blank"
-                                            onclick="CopyText('{{config('app.url').$file->link_share}}')">Open
-                                            Link</a>
-                                        <a class="btn btn-sm btn-outline-primary"
-                                            onclick="CopyText('{{config('app.url').$file->link_share}}')">Copy</a>
+                                    <td>
+                                        <a href="{{ route('share',[$file->link_share]) }}"
+                                            class="btn btn-sm btn-outline-success btn-round btn-icon"
+                                            target="_blank" data-toggle="tooltip" title="Open Link">
+                                            <i class="nc-icon nc-send"></i></a>
+                                        <btn class="btn btn-sm btn-outline-success btn-round btn-icon"
+                                            onclick="CopyText('{{config('app.url').$file->link_share}}')"
+                                            data-toggle="tooltip" title="Copy Link">
+                                            <i class="nc-icon nc-single-copy-04"></i></btn>
+
                                     </td>
                                 </tr>
                                 @endforeach

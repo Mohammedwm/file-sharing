@@ -29,6 +29,11 @@ class HomeController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:255',
+            'file' => 'required',
+        ]);
+
         $data = $request->except('file');
 
         if ($request->hasFile('file')) {
@@ -41,11 +46,26 @@ class HomeController extends Controller
 
         $file = File::create($data);
 
-        // PRG: Post Redirect Get
         return redirect()
             ->route('home');
     }
-    public function share($link_share)
+    public function viewFile($link_share)
+    {
+        $file = File::where('link_share',$link_share)->first();
+        if(!$file){
+            return abort(404);
+        }
+        if($file->visits->count() > 50){
+            $file['check'] = -1;
+            return view('viewFile',['file' => $file]);
+        }
+        $data['file_id'] = $file->id;
+        $data['ip'] = \Request::ip();
+        $data['country'] = \Location::get($data['ip']);
+        Visits::create($data);
+        return view('viewFile',['file' => $file]);
+    }
+    public function downloadFile($link_share)
     {
         $file = File::where('link_share',$link_share)->first();
         if (!$file) {

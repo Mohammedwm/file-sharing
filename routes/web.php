@@ -18,5 +18,7 @@ Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/UploadFile', [HomeController::class,'uploadFile'])->name('uploadFile');
 Route::get('/AllFiles', [HomeController::class,'AllFiles'])->name('allFiles');
 Route::post('/store', [HomeController::class,'store'])->name('store');
-Route::get('/{link_share}', [HomeController::class,'share'])->name('share');
+Route::get('/{link_share}', [HomeController::class,'viewFile'])->name('share');
+Route::get('/downloadFile/{link_share}', [HomeController::class,'downloadFile'])->name('downloadFile');
+
 

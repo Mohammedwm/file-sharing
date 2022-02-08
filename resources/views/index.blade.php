@@ -18,7 +18,6 @@
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/css/paper-dashboard.css?v=2.0.1') }}" rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
-        <link href="{{ asset('assets/demo/demo.css') }}" rel="stylesheet" />
     </head>
 
     <body class="">
@@ -136,18 +135,17 @@
             </div>
         </div>
         <!--   Core JS Files   -->
+
         <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
         <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
         <!--  Google Maps Plugin    -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-        <!-- Chart JS -->
-        <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
         <!--  Notifications Plugin    -->
         <script src="{{ asset('assets/js/plugins/bootstrap-notify.js') }}"></script>
         <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="{{ asset('assets/js/paper-dashboard.min.js?v=2.0.1') }}" type="text/javascript"></script>
+        @stack('scripts')
     </body>
 
 </html>

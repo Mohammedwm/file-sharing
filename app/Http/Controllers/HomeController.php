@@ -33,14 +33,13 @@ class HomeController extends Controller
             'title' => 'required|max:255',
             'file' => 'required',
         ]);
-
         $data = $request->except('file');
-
+        
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $data['file_name'] = $request->file('file')->getClientOriginalName();
-            $data['path'] = Storage::disk('local')->put('file',$file);
-            $data['size'] = number_format($request->file('file')->getSize() / 1048576);
+            $data['path'] = Storage::disk('local')->put('file',$file);  
+            $data['size'] = number_format($request->file('file')->getSize() / 1024,2);
         }
         $data['link_share'] = uniqid();
 
